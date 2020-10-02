@@ -6,10 +6,11 @@
   align-items: center;
   flex-direction: column;
   text-align: center;
-  border: 2px solid blue;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 3px rgba(110, 110, 110, 1);
+  font-family: 'Permanent Marker', cursive;
 }
 
 .Pokemon img {
-  border: 2px solid black;
   width: 150px;
 }

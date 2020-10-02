@@ -1,0 +1,12 @@
+.PokemonFilter {
+  font-family: 'Permanent Marker', cursive;
+}
+
+.PokemonFilter h4 {
+  display: inline;
+}
+
+.PokemonFilter select {
+  font-family: 'Permanent Marker', cursive;
+  border-radius: 5px;
+}
