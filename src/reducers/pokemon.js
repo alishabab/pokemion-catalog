@@ -5,7 +5,7 @@ import {
   POKEMON_ERROR,
   POKEMON_PENDING,
   POKEMON_SUCCESS,
-} from '../actions/index';
+} from '../constants/index';
 
 export const pokemonsReducer = (state = {}, action) => {
   switch (action.type) {
@@ -48,7 +48,14 @@ export const pokemonsReducer = (state = {}, action) => {
   }
 };
 
-export const getPokemons = state => state.pokemons;
-export const getPokemonsPending = state => state.pending;
-export const getPokemonPending = state => state.pendingPokemon;
-export const getPokemonsError = state => state.error;
+const getPokemons = state => state.pokemons;
+const getPokemonsPending = state => state.pending;
+const getPokemonPending = state => state.pendingPokemon;
+const getPokemonsError = state => state.error;
+
+export {
+  getPokemons,
+  getPokemonsPending,
+  getPokemonPending,
+  getPokemonsError,
+};

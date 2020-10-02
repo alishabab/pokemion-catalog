@@ -1,10 +1,12 @@
-const POKEMONS_PENDING = 'POKEMONS_PENDING';
-const POKEMONS_SUCCESS = 'POKEMONS_SUCCESS';
-const POKEMONS_ERROR = 'POKEMONS_ERROR';
-const POKEMON_PENDING = 'POKEMON_PENDING';
-const POKEMON_SUCCESS = 'POKEMON_SUCCESS';
-const POKEMON_ERROR = 'POKEMON_ERROR';
-const FILTER_TYPE = 'FILTER_TYPE';
+import {
+  POKEMONS_PENDING,
+  POKEMONS_SUCCESS,
+  POKEMONS_ERROR,
+  POKEMON_PENDING,
+  POKEMON_SUCCESS,
+  POKEMON_ERROR,
+  FILTER_TYPE,
+} from '../constants/index';
 
 const getPokemonsPending = () => ({
   type: POKEMONS_PENDING,
@@ -40,13 +42,6 @@ const changeType = type => ({
 });
 
 export {
-  POKEMONS_PENDING,
-  POKEMONS_SUCCESS,
-  POKEMONS_ERROR,
-  POKEMON_ERROR,
-  POKEMON_PENDING,
-  POKEMON_SUCCESS,
-  FILTER_TYPE,
   getPokemonsPending,
   getPokemonsSuccess,
   getPokemonsError,
