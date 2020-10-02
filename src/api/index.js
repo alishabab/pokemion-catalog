@@ -10,7 +10,7 @@ import {
 
 const baseUrl = 'https://pokeapi.co/api/v2';
 
-const getData = url => {
+const fetchData = url => {
   fetch(url).then(res => {
     if (res.ok) {
       return res.json();
@@ -20,10 +20,10 @@ const getData = url => {
     .catch(err => console.log(err));
 };
 
-const getPokemon = name => async dispatch => {
+const fetchPokemon = name => async dispatch => {
   dispatch(getSinglePokemonPending());
   try {
-    const response = await getData(`${baseUrl}/pokemon/${name}`);
+    const response = await fetchData(`${baseUrl}/pokemon/${name}`);
     const pokemon = {
       name: response.name,
       abilities: response.abilities,
@@ -38,10 +38,10 @@ const getPokemon = name => async dispatch => {
   }
 };
 
-const getPokemons = type => async dispatch => {
+const fetchPokemons = type => async dispatch => {
   dispatch(getPokemonsPending());
   try {
-    const response = await getData(`${baseUrl}/type/${type}`);
+    const response = await fetchData(`${baseUrl}/type/${type}`);
     const pokemons = response.pokemon.map(async pok => {
       const res = await fetch(pok.pokemon.url);
       return res.json();
@@ -60,7 +60,7 @@ const getPokemons = type => async dispatch => {
   }
 };
 
-export default {
-  getPokemon,
-  getPokemons,
+export {
+  fetchPokemon,
+  fetchPokemons,
 };

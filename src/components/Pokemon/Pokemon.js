@@ -4,14 +4,14 @@ import classes from './Pokemon.module.css';
 
 const Pokemon = ({ pokemon }) => (
   <div className={classes.Pokemon}>
-    <img src={pokemon.src} alt={pokemon.name} />
+    <img src={pokemon.image} alt={pokemon.name} />
     <p>{pokemon.name}</p>
   </div>
 );
 
 Pokemon.propTypes = {
   pokemon: PropTypes.shape({
-    src: PropTypes.string,
+    image: PropTypes.string,
     name: PropTypes.string,
   }).isRequired,
 };
