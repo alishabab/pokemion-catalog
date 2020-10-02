@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../Navbar/Navbar';
-import PokemonList from '../PokemonList/PokemonList';
+import PokemonList from '../../containers/PokemonList/PokemonList';
 import PokemonFilter from '../PokemonFilter/PokemonFilter';
 import './App.css';
 

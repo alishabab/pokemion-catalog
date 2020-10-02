@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './PokemonList.module.css';
 
-import Pokemon from '../Pokemon/Pokemon';
+import Pokemon from '../../components/Pokemon/Pokemon';
 
 const pokemons = [
   {
