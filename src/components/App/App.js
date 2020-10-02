@@ -1,11 +1,11 @@
 import React from 'react';
 import Navbar from '../Navbar/Navbar';
 import PokemonList from '../../containers/PokemonList/PokemonList';
-import './App.css';
+import classes from './App.module.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className={classes.App}>
       <Navbar />
       <PokemonList />
     </div>

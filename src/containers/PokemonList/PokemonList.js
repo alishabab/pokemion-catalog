@@ -4,44 +4,12 @@ import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import Spinner from 'react-bootstrap/Spinner';
 
+import { fetchPokemons } from '../../api/index';
 import { getPokemonsError, getPokemons, getPokemonsPending } from '../../reducers/pokemon';
 import { getPokemonType } from '../../reducers/filter';
 import Pokemon from '../../components/Pokemon/Pokemon';
 import PokemonFilter from '../../components/PokemonFilter/PokemonFilter';
 import classes from './PokemonList.module.css';
-
-const pokemons = [
-  {
-    id: 1,
-    image: 'https://i.pinimg.com/originals/cb/33/49/cb3349b86ca661ca61ae9a36d88d70d4.png',
-    name: 'picachu',
-  },
-  {
-    id: 2,
-    image: 'https://i.pinimg.com/originals/cb/33/49/cb3349b86ca661ca61ae9a36d88d70d4.png',
-    name: 'picachu',
-  },
-  {
-    id: 3,
-    image: 'https://i.pinimg.com/originals/cb/33/49/cb3349b86ca661ca61ae9a36d88d70d4.png',
-    name: 'picachu',
-  },
-  {
-    id: 4,
-    image: 'https://i.pinimg.com/originals/cb/33/49/cb3349b86ca661ca61ae9a36d88d70d4.png',
-    name: 'picachu',
-  },
-  {
-    id: 5,
-    image: 'https://i.pinimg.com/originals/cb/33/49/cb3349b86ca661ca61ae9a36d88d70d4.png',
-    name: 'picachu',
-  },
-  {
-    id: 6,
-    image: 'https://i.pinimg.com/originals/cb/33/49/cb3349b86ca661ca61ae9a36d88d70d4.png',
-    name: 'picachu',
-  },
-];
 
 class PokemonList extends React.Component {
   constructor(props) {
@@ -63,12 +31,68 @@ class PokemonList extends React.Component {
   }
 
   render() {
+    const { data, filter } = this.props;
+    const { error, pending, pokemons } = data;
+    if (error) {
+      return (
+        <div>
+          {error}
+        </div>
+      );
+    }
+
+    if (pending) {
+      return (
+        <Spinner animation="border" />
+      );
+    }
+
+    if (pokemons.length < 2) {
+      return (
+        <Spinner animation="border" />
+      );
+    }
+
     return (
-      <div className={classes.PokemonList}>
-        { pokemons.map(pokemon => <Pokemon key={pokemon.id} pokemon={pokemon} />)}
+      <div>
+        <PokemonFilter onChange={this.handleFilterChange} category={filter} />
+        <div className={classes.PokemonList}>
+          { pokemons.map(pokemon => <Pokemon key={pokemon.name} pokemon={pokemon} />)}
+        </div>
       </div>
     );
   }
 }
 
-export default PokemonList;
+const mapDispatchToProps = dispatch => bindActionCreators({
+  fetchPokemons,
+}, dispatch);
+
+const mapStateToProps = state => ({
+  data: {
+    error: getPokemonsError(state.data),
+    pokemons: getPokemons(state.data),
+    pending: getPokemonsPending(state.data),
+  },
+  filter: getPokemonType(state.filter),
+});
+
+PokemonList.defaultProps = {
+  data: {
+    pending: true,
+    error: null,
+    pokemons: [],
+  },
+  filter: 'normal',
+};
+
+PokemonList.propTypes = {
+  data: PropTypes.shape({
+    pending: PropTypes.bool,
+    error: PropTypes.string,
+    pokemons: PropTypes.arrayOf(PropTypes.object),
+  }),
+  filter: PropTypes.string,
+  fetchPokemons: PropTypes.func.isRequired,
+};
+export default connect(mapStateToProps, mapDispatchToProps)(PokemonList);

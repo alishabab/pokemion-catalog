@@ -10,14 +10,12 @@ import {
 
 const baseUrl = 'https://pokeapi.co/api/v2';
 
-const fetchData = url => {
-  fetch(url).then(res => {
-    if (res.ok) {
-      return res.json();
-    }
-    return res.status;
-  })
-    .catch(err => console.log(err));
+const fetchData = async url => {
+  const response = await fetch(url);
+
+  if (response.ok) return response.json();
+
+  throw new Error(response.status);
 };
 
 const fetchPokemon = name => async dispatch => {

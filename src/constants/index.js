@@ -5,3 +5,4 @@ export const POKEMON_PENDING = 'POKEMON_PENDING';
 export const POKEMON_SUCCESS = 'POKEMON_SUCCESS';
 export const POKEMON_ERROR = 'POKEMON_ERROR';
 export const FILTER_TYPE = 'FILTER_TYPE';
+export const DEFAULT_IMG = 'https://www.equalserving.com/images/es1scplugin/image-not-available.png';

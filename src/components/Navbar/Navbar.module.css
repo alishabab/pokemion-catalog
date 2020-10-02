@@ -1,6 +1,16 @@
-.logo {
+.Navbar {
+  margin: 10px;
+  padding: 10px;
+}
+
+.Logo {
   text-decoration: none;
   color: #000;
   font-size: 56px;
   font-family: 'Permanent Marker', cursive;
+}
+
+.Logo:hover {
+  text-decoration: none;
+  color: #000;
 }
