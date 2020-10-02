@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classes from './PokemonFilter.module.css';
 
-const PokemonFilter = () => {
+const PokemonFilter = ({ onChange, category }) => {
   const categories = [
     'normal',
     'fire',
@@ -25,12 +26,21 @@ const PokemonFilter = () => {
   return (
     <div className={classes.PokemonFilter}>
       <h4>Select Category: </h4>
-      <select>
+      <select name="category" value={category} onChange={e => onChange(e)}>
         <option value="">Select Category</option>
         {categories.map(type => <option key={type} value={type}>{type}</option>)}
       </select>
     </div>
   );
+};
+
+PokemonFilter.defaultProps = {
+  category: 'normal',
+};
+
+PokemonFilter.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  category: PropTypes.string,
 };
 
 export default PokemonFilter;
