@@ -43,13 +43,17 @@ class PokemonList extends React.Component {
 
     if (pending) {
       return (
-        <Spinner animation="border" />
+        <div className={classes.TextCenter}>
+          <Spinner animation="border" />
+        </div>
       );
     }
 
     if (pokemons.length < 2) {
       return (
-        <Spinner animation="border" />
+        <div className={classes.TextCenter}>
+          <Spinner animation="border" />
+        </div>
       );
     }
 

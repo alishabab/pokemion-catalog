@@ -11,15 +11,15 @@ const abilities = [
 
 const stats = [
   {
-    name: "abc",
+    name: 'abc',
     base_stat: 50,
   },
-  { 
-    name: "abc",
+  {
+    name: 'abc',
     base_stat: 40,
   },
   {
-    name: "abc",
+    name: 'abc',
     base_stat: 90,
   },
 ];
@@ -43,7 +43,14 @@ const PokemonInfo = ({ pokemon }) => {
         </ul>
         <p>Statistics</p>
         <ul>
-          {stats.map(stat => <li key={stat.name} className={classes.Stat}>{stat.name}: {stat.base_stat}</li>)}
+          {stats.map(stat => (
+            <li key={stat.name} className={classes.Stat}>
+              {stat.name}
+              :
+              {' '}
+              {stat.base_stat}
+            </li>
+          ))}
         </ul>
         <button type="button">Back</button>
       </div>
