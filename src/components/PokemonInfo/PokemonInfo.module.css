@@ -21,15 +21,18 @@ button {
 }
 
 .PokemonImg {
-  width: 200px;
+  width: 30%;
+  display: flex;
+  align-items: center;
 }
 
 .PokemonImg img {
-  width: 100%;
+  width: 50%;
 }
 
 .PokemonDetail {
   width: 70%;
+  margin-left: 30px;
 }
 
 .Ability {

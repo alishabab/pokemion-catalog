@@ -1,61 +1,63 @@
 import React from 'react';
 import { useHistory } from 'react-router';
 import PropTypes from 'prop-types';
+import { DEFAULT_IMG } from '../../constants/index';
 import classes from './PokemonInfo.module.css';
-
-const abilities = [
-  'Big Eyes',
-  'Long Feet',
-  'Fast',
-];
-
-const stats = [
-  {
-    name: 'abc',
-    base_stat: 50,
-  },
-  {
-    name: 'abc',
-    base_stat: 40,
-  },
-  {
-    name: 'abc',
-    base_stat: 90,
-  },
-];
 
 const PokemonInfo = ({ pokemon }) => {
   const history = useHistory();
   const goBackHandle = () => {
     history.goBack();
   };
-
   return (
     <div className={classes.PokemonInfo}>
       <div className={classes.PokemonImg}>
-        <img src="https://pngimg.com/uploads/pokemon/pokemon_PNG149.png" alt="pokemon" />
+        <img
+          src={pokemon.sprites.front_default ? pokemon.sprites.front_default : DEFAULT_IMG}
+          alt={pokemon.name}
+        />
+        <img
+          src={pokemon.sprites.back_default ? pokemon.sprites.back_default : DEFAULT_IMG}
+          alt={pokemon.name}
+        />
       </div>
       <div className={classes.PokemonDetail}>
-        <h2>Pokemon Name</h2>
+        <h2>{pokemon.name}</h2>
         <p>Abilities</p>
         <ul>
-          {abilities.map(ability => <li key={ability} className={classes.Ability}>{ability}</li>)}
-        </ul>
-        <p>Statistics</p>
-        <ul>
-          {stats.map(stat => (
-            <li key={stat.name} className={classes.Stat}>
-              {stat.name}
-              :
-              {' '}
-              {stat.base_stat}
+          {pokemon.abilities.map(item => (
+            <li
+              key={item.ability.name}
+              className={classes.Ability}
+            >
+              {item.ability.name}
             </li>
           ))}
         </ul>
-        <button type="button">Back</button>
+        <p>Statistics</p>
+        <ul>
+          {pokemon.stats.map(stats => (
+            <li key={stats.stat.name} className={classes.Stat}>
+              {stats.stat.name}
+              :
+              {' '}
+              {stats.base_stat}
+            </li>
+          ))}
+        </ul>
+        <button type="button" onClick={goBackHandle}>Back</button>
       </div>
     </div>
   );
+};
+
+PokemonInfo.propTypes = {
+  pokemon: PropTypes.shape({
+    name: PropTypes.string,
+    abilities: PropTypes.arrayOf(PropTypes.object),
+    stats: PropTypes.arrayOf(PropTypes.object),
+    sprites: PropTypes.objectOf(PropTypes.string),
+  }).isRequired,
 };
 
 export default PokemonInfo;
