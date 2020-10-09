@@ -18,8 +18,8 @@ class PokemonList extends React.Component {
   }
 
   componentDidMount() {
-    const { fetchPokemons } = this.props;
-    fetchPokemons('normal');
+    const { fetchPokemons, filter } = this.props;
+    fetchPokemons(filter);
   }
 
   handleFilterChange(e) {
