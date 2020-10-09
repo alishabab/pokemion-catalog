@@ -56,7 +56,10 @@ PokemonInfo.propTypes = {
     name: PropTypes.string,
     abilities: PropTypes.arrayOf(PropTypes.object),
     stats: PropTypes.arrayOf(PropTypes.object),
-    sprites: PropTypes.objectOf(PropTypes.string),
+    sprites: PropTypes.shape({
+      front_default: PropTypes.string,
+      back_default: PropTypes.string,
+    }),
   }).isRequired,
 };
 
