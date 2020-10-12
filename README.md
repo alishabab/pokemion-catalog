@@ -41,6 +41,7 @@
 
 * [About the Project](#about-the-project)
 * [Installation](#installation)
+* [Test](#test)
 * [Live Link](#Live-Link)
 * [Built With](#built-with)
 * [Potential Future Updates](#potential-future-updates)
@@ -77,6 +78,12 @@ npm start
 ```
 
 Now go to [localhost:8000](http://localhost:8000) in your browser.
+
+<!-- Test -->
+
+## Test
+
+To run unit test run `npm test` in root directory.
 
 <!-- BUILD WITH -->
 
