@@ -2,8 +2,8 @@ import React from 'react';
 import classes from './Navbar.module.css';
 
 const Navbar = () => (
-  <nav>
-    <h1><a href="/#" className={classes.logo}> Pokemon Catalog </a></h1>
+  <nav className={classes.Navbar}>
+    <h1><a href="/#" className={classes.Logo}> Pokemon Catalog </a></h1>
   </nav>
 );
 

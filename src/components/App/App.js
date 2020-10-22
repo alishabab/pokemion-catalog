@@ -1,16 +1,20 @@
 import React from 'react';
+import {
+  BrowserRouter as Router, Route, Switch,
+} from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
-import PokemonList from '../PokemonList/PokemonList';
-import PokemonFilter from '../PokemonFilter/PokemonFilter';
-import './App.css';
+import PokemonList from '../../containers/PokemonList/PokemonList';
+import PokemonCard from '../../containers/PokemonCard/PokemonCard';
 
 function App() {
   return (
-    <div className="App">
+    <Router>
       <Navbar />
-      <PokemonFilter />
-      <PokemonList />
-    </div>
+      <Switch>
+        <Route exact path="/" component={PokemonList} />
+        <Route path="/pokemon/:name" component={PokemonCard} />
+      </Switch>
+    </Router>
   );
 }
 

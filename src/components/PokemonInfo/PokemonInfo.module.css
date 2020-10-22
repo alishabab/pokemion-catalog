@@ -1,0 +1,52 @@
+ul {
+  list-style: none;
+  display: flex;
+  margin-top: 20px;
+  padding: 0;
+}
+
+button {
+  margin-top: 40px;
+  border-radius: 5px;
+}
+
+.PokemonInfo {
+  display: flex;
+  justify-content: space-around;
+  width: 95%;
+  margin: 0 auto;
+  padding: 10px;
+  box-shadow: 0 0 10px 3px rgba(110, 110, 110, 1);
+  font-family: 'Permanent Marker', cursive;
+}
+
+.PokemonImg {
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
+
+.PokemonImg img {
+  width: 50%;
+}
+
+.PokemonDetail {
+  width: 70%;
+  margin-left: 30px;
+}
+
+.Ability {
+  border: 1px solid black;
+  margin-right: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: aquamarine;
+}
+
+.Stat {
+  border: 1px solid black;
+  margin-right: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: azure;
+}
